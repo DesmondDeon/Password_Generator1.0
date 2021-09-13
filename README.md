@@ -2,8 +2,6 @@
 
 ## Purpose
 The following image shows the web application's appearance and functionality:
-images/Password Generator1.pdf
-images/Password Generator1.pdf
 
 
 ## Built With
