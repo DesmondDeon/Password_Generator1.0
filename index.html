@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header> <!-- Header -->
+          <div class="card">
+            <div class="card-header">
+             <h2>Generate a Password</h2>
+            </div> <!-- Card header -->
+              <div class="card-body" class="result-container">
+                <textarea
+                 readonly
+                 id="password"
+                 placeholder="Your Secure Password"
+                 aria-label="Generated Password"
+                ></textarea>
+              </div> <!-- Card Body -->
+                <div class="card-footer">
+                  <button id="generate" class="btn">Generate Password</button>  
+                </div> <!-- Card Footer -->
+          <div id="questionmodal" class="modal"> 
+             <div class="modal-content">
+                <div class="modal-header">
+                  <span class="closebtn">&times;</span>
+                    <h2>Password Requirments</h2>
+                    <!--<div class="result-container"></div>--> <!-- Result Container Inside Modal -->
+                      <span id="result"></span>
+                </div> <!-- Modal Header -->
+
+                <div class="settings">
+                  <label for="lenght">Password lenth</label>
+                    <input type="number" id="lenght" min="4" max="20" value="20" />
+                </div> <!-- Password Lenght -->
+                
+                <div class="settings">
+                   <label for="uppercase">Include uppercase letters</label>
+                    <input type="checkbox" id="uppercase" checked />
+                </div> <!-- Password Uppercase -->
+              
+                <div class="settings">
+                   <label for="lowercase">Include lowercase letters</label>
+                    <input type="checkbox" id="lowercase" checked />
+                </div> <!-- Password Lowercase -->
+            
+                <div class="settings">
+                    <label for="number">Include Numbers</label>
+                     <input type="checkbox" id="numbers" checked />
+                </div> <!-- Password Number -->
+          
+                <div class="settings">
+                   <label for="symbols">Include Symbols</label>
+                     <input type="checkbox" id="symbols" checked />
+                </div> <!-- Password Symbols -->
+                
+      
+                <div class="modal-footer">
+                  <p>Please answer the following questions to generate a password</p>
+
+                  <button class="generate__password" id="get__password">
+                    Generate
+                  </button>
+                </div> <!-- Modal Footer -->
+                
+              </div> <!-- Modal Content -->
+          </div> <!-- Modal -->
+          </div> <!-- Card -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
