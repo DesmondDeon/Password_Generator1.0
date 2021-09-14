@@ -28,7 +28,7 @@ function clickOutside(e){
 // Assignment code here
 
 const resultEl = document.getElementById('result');
-const lenghtEl = document.getElementById('lenght');
+const lengthEl = document.getElementById('length');
 const uppercaseEl = document.getElementById('uppercase');
 const lowercaseEl = document.getElementById('lowercase');
 const numbersEl = document.getElementById('numbers');
@@ -36,29 +36,33 @@ const sybomlsEl = document.getElementById('symbols');
 const generateEl = document.getElementById('get__password');
 
 const randomFunc = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  symbol: getRandomSymbol
+  lower: getRandomLower(),
+  upper: getRandomUpper(),
+  numbers: getRandomNumber(),
+  symbols: getRandomSymbol()
 
 };
 // Event Generation 
 generateEl.addEventListener("click", () => {
-  const lenght = +lenghtEl.value;
+  const length = +lengthEl.value;
   const haslower = lowercaseEl.checked;
   const hasupper = uppercaseEl.checked;
   const hasNumber = numbersEl.checked;
   const hasSymbol = sybomlsEl.checked;
 
   resultEl.innerText = generatepassword(
-    hasNumber, 
-    hasSymbol, 
     haslower, 
-    hasupper);
+    hasupper,
+    hasNumber, 
+    hasSymbol,
+    length);
+
+    document.getElementById("password").textContent = resultEl.innerText
+    closeModal()
 })
 
   // Genrate Password Fuction
-function generatepassword(lower, upper, numbers, symbols, lenght) {
+function generatepassword(lower, upper, numbers, symbols, length) {
   
   let password = '';
 
@@ -75,19 +79,20 @@ function generatepassword(lower, upper, numbers, symbols, lenght) {
     return '';
   }
 
-  for (let index = 0; index < lenghtEl; index+=typesCount) {
+  for (let index = 0; index < length; index+=typesCount) {
     typesArr.forEach(type =>{
       var funcName = Object.keys(type)[0];
-      console.log('randomFunc: ', randomFunc);
+      console.log('randomFunc: ', funcName);
 
-      password += randomFunc[funcName]();
+      password += randomFunc[funcName];
     })
     
     
 
   }
 
-  const finalPassword = password.slice(0, lenght);
+  const finalPassword = password.slice(0, length);
+  console.log("finalPassword:", finalPassword)
 
   return finalPassword;
 }
